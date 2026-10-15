@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0f172a">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <title>Route Lab</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='14' fill='%232563eb'/%3E%3Ccircle cx='16' cy='16' r='5' fill='white'/%3E%3C/svg%3E">
+
+  <link rel="stylesheet"
+        href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+        crossorigin="">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="map" aria-label="Map"></div>
+
+  <header class="brand">Route Lab</header>
+
+  <button id="recenter" class="recenter" type="button" hidden aria-label="Re-centre map on my location">
+    <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
+      <circle cx="12" cy="12" r="3.5" fill="currentColor"/>
+      <circle cx="12" cy="12" r="8" fill="none" stroke="currentColor" stroke-width="2"/>
+      <path d="M12 1v4M12 19v4M1 12h4M19 12h4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+    </svg>
+  </button>
+
+  <section class="panel" id="panel">
+    <div class="steps">
+      <div class="steps-main">
+        <div class="steps-label">Steps</div>
+        <div id="steps" class="steps-count" aria-label="Step count">0</div>
+      </div>
+      <div class="steps-side">
+        <button id="reset" class="reset" type="button">Reset</button>
+        <div id="motionStatus" class="motion-status">Motion sensor off</div>
+      </div>
+    </div>
+
+    <div id="status" class="status" aria-live="polite">Tap Start to follow your location and count steps.</div>
+    <dl class="readout">
+      <div><dt>Latitude</dt><dd id="lat">&ndash;</dd></div>
+      <div><dt>Longitude</dt><dd id="lng">&ndash;</dd></div>
+      <div><dt>Accuracy</dt><dd id="acc">&ndash;</dd></div>
+    </dl>
+    <button id="toggle" class="toggle" type="button">Start</button>
+  </section>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+          integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+          crossorigin=""></script>
+  <script src="app.js"></script>
+</body>
+</html>
